@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { DatePicker, Table } from "antd";
 import { Button, Input, Flex, List, Typography, Space } from "antd";
-import OtterChart from "./index.global.js";
+
 const App = () => {
   const { RangePicker } = DatePicker;
   const data = [
@@ -43,19 +43,7 @@ const App = () => {
       key: "address",
     },
   ];
-  useEffect(() => {
-    OtterChart();
-    window.onload = () => {
-      const { initChart } = OtterChart;
-      const { chart } = initChart("chart", {
-        width: 1000,
-        height: 350,
-      });
 
-      chart.setChartData([]);
-      chart.setOrderData([]);
-    };
-  }, []);
   return (
     <>
       <h2>OtterTrade回测可视化插件</h2>
@@ -89,7 +77,7 @@ const App = () => {
             <Table dataSource={dataSource} columns={columns} />;
           </Flex>
           <div>
-            <div id="chart" style="margin: 0 auto"></div>
+            <div id="chart" style={{ margin: "0 auto" }}></div>
           </div>
         </Flex>
       </Flex>
